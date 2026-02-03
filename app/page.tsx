@@ -1,4 +1,5 @@
 import { mockTrades } from "@/lib/mockTrades";
+import Link from "next/link";
 import {
   buildEquityData,
   buildDrawdownData,
@@ -26,9 +27,27 @@ export default function DashboardPage() {
 
   return (
     <section className="space-y-6">
-      <h1 className="text-2xl font-semibold">
-        Portfolio Analytics
-      </h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-semibold">
+          Portfolio Dashboard
+        </h1>
+        <div className="flex gap-4">
+        <Link
+          href="/analytics"
+          className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        >
+          Portfolio Analysis
+        </Link>
+        <Link
+          href="/journal"
+          className="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+        >
+          Trading Journal
+        </Link>
+      </div>
+        
+      </div>
+      
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <EquityCurve data={equityData} />
@@ -36,6 +55,8 @@ export default function DashboardPage() {
         <DirectionBiasChart data={directionData} />
         <PnlBarChart trades={mockTrades} />
       </div>
+
+      
     </section>
   );
 }

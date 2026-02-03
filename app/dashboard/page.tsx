@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import { mockTrades } from "@/lib/mockTrades";
 import {
   calculateTotalPnL,
@@ -90,6 +91,10 @@ export default function DashboardPage() {
       <p className="text-sm text-muted-foreground">
         Max Drawdown: {maxDrawdown.toFixed(2)}
       </p>
+
+       
+
+      {/* Your dashboard stats and charts here */}
     </div>
   );
 }
